@@ -1,6 +1,6 @@
 ZimbraFlow
 ========
-ZimbraFlow è un'estensione di Zimbra che utilizza la libreria [OpenZAL](http://openzal.org).  
+ZimbraFlow è un'estensione di Zimbra che utilizza la libreria [OpenZAL](http://openzal.org) e non va in conflitto con altre estensioni ZAL-based eventualmente presenti nel sistema.  
 E' compatibile con OpenZAL 1.5 e Zimbra dalla version 6.0.7 alla versione 8.5.1.
 
 La versione di OpenZAL compatibile piu' recente puo' essere trovata all'indirizzo http://openzal.org/1.5/zal-1.5-{zimbraVersion}.jar - es. la versione di OpenZAL compilata per Zimbra 8.5.0 è disponibile all'indirizzo [http://openzal.org/1.5/zal-1.5-8.5.0.jar](http://openzal.org/1.5/zal-1.5-8.5.0.jar)
@@ -11,6 +11,25 @@ L'estensione estrae il messaggio da Zimbra, anche se contenuto in cartelle condi
 Nel file ZimbraFlowHandler.java è possibile configurare gli attributi del messaggio da inviare nella richiesta SOAP.  
 Modificando il file config_template.xml è possibile impostare l'indirizzo del servizio SOAP: per impostare il file di configurazione per una zimlet utilizzare il comando  
 'zmzimletctl configure config_template.xml'
+
+Installazione
+-------
+* Crea la cartella per l'estensione ZimbraFlow:
+```
+mkdir /opt/zimbra/lib/ext/ZimbraFlow
+```
+* Sposta i jar zal.jar (per la tua versione di zimbra) e ZimbraFlow.jar nella cartella:
+```
+mv zal.jar ZimbraFlow.jar /opt/zimbra/lib/ext/ZimbraFlow/
+```
+* Riavvia il servizio mailbox dei server conivolti:
+```
+zmmailboxdctl restart
+```
+* Installa la zimlet com_ZimbraFlow.zip direttamente dalla console amministrativa oppure via CLI con il comando:
+```
+zmzimletctl deploy com_ZimbraFlow.zip
+```
 
 Esempio
 -------
