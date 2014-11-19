@@ -54,3 +54,35 @@ Nell'implementazione di esempio i seguenti campi sono inclusi nella richiesta SO
 Quando la richiesta causa un'eccezione il contenuto di questa viene mostrato in un alert dal browser.  
 Se la richiesta viene inviata correttamente ma la riposta inizia con la sigla KO il messaggio è interpretato come un errore e mostrato in un popup all'interno del WebClient.  
 Se la risposta inizia con la sigla OK il messaggio viene mostrato in un popup all'interno del WebClient che segnala il successo della richiesta SOAP.
+
+Richiesta creata dall'estensione:
+```
+<?xml version="1.0" encoding="utf-8"?>
+  <soap12:Envelope xmlnssi="http://www.w3.org/2001/XMLSchema-instance" xmlnssd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <EmailInfo xmlns=" http://tempuri.org/ ">
+      <cUserEmail> string </cUserEmail>
+      <cDateTime> string </cDateTime>
+      <cFrom> string </cFrom>
+      <cTO> string </cTO>
+      <cCC> string </cCC>
+      <cCCN> string </cCCN>
+      <cSubject> string </cSubject>
+      <cBody> string </cBody>
+      <StreamBase64> string </StreamBase64>
+    </EmailInfo>
+  </soap12:Body>
+</soap12:Envelope>
+```
+
+Risposta di esempio di un SOAP service:
+```
+<?xml version="1.0" encoding="utf-8"?>
+  <soap12:Envelope xmlnssi=" http://www.w3.org/2001/XMLSchema-instance" xmlnssd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">
+  <soap12:Body>
+    <EmailInfoResponse xmlns=" http://tempuri.org/ ">
+      <EmailInfoResult>OKMessaggio di conferma</EmailInfoResult>
+    </EmailInfoResponse>
+  </soap12:Body>
+</soap12:Envelope>
+```
