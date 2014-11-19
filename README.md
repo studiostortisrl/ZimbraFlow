@@ -6,7 +6,7 @@ E' compatibile con OpenZAL 1.5 e Zimbra dalla version 6.0.7 alla versione 8.5.1.
 La versione di OpenZAL compatibile piu' recente puo' essere trovata all'indirizzo http://openzal.org/1.5/zal-1.5-{zimbraVersion}.jar - es. la versione di OpenZAL compilata per Zimbra 8.5.0 è disponibile all'indirizzo [http://openzal.org/1.5/zal-1.5-8.5.0.jar](http://openzal.org/1.5/zal-1.5-8.5.0.jar)
 
 La zimlet manda una richiesta all'estensione ZimbraFlow contenente l'Id del messaggio selezionato e l'indirizzo del servizio SOAP.  
-L'estensione estrae il messaggio da Zimbra, e spedisce una richiesta SOAP contenente alcuni attributi del messaggio.
+L'estensione estrae il messaggio da Zimbra, anche se contenuto in cartelle condivise, e spedisce una richiesta SOAP contenente alcuni attributi del messaggio.
 
 Nel file ZimbraFlowHandler.java è possibile configurare gli attributi del messaggio da inviare nella richiesta SOAP.  
 Modificando il file config_template.xml è possibile impostare l'indirizzo del servizio SOAP: per impostare il file di configurazione per una zimlet utilizzare il comando  
